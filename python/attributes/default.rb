@@ -1,0 +1,1 @@
+default['python']['msi_path'] = 'C:\tmp\python27.msi'

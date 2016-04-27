@@ -1,0 +1,5 @@
+default['cylance_setup']['cylance_x64_local'] = 'C:\tmp\CylanceProtect_x64.msi'
+default['cylance_setup']['cylance_x86_local'] = 'C:\tmp\CylanceProtect_x86.msi'
+default['cylance_setup']['cylance_vbs_local'] = 'C:\tmp\CylInst.vbs'
+default['cylance_setup']['cylance_setup_local'] = 'C:\tmp\setup.exe'
+default['cylance_setup']['cylance_version'] = '1.2.1330.31'
