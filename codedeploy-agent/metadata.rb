@@ -1,5 +1,0 @@
-name	'codedeploy-agent'
-recipe	'codedeploy-agent::default', 'Fetches, installs, and starts the AWS CodeDeploy host agent'
-version '1.0.3'
-maintainer ''
-maintainer_email ''
