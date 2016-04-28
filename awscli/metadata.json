@@ -1,0 +1,28 @@
+{
+  "name": "awscli",
+  "version": "1.0.0",
+  "description": "Installs and configures AWS CLI",
+  "platforms": {
+    "centos": ">= 0.0.0",
+    "rhel": ">= 0.0.0",
+    "windows" : ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  }
+}
