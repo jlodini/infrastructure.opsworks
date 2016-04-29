@@ -33,12 +33,10 @@ Chef::Log.info("******Linking Codedeploy.******")
 
 powershell_script "Linking Codedeploy" do
  code <<-EOH
- $regionHTML = Invoke-WebRequest -Uri http://169.254.169.254/latest/meta-data/placement/availability-zone
- $region = $regionHTML.Content.Substring(0,$regionHTML.Content.Length-1)
- $HTML = Invoke-WebRequest -Uri http://169.254.169.254/latest/meta-data/instance-id
- 
- Get-EC2Tag -Filter @{ res="key";Values="mytag"}
-  
+$regionHTML = Invoke-WebRequest -Uri http://169.254.169.254/latest/meta-data/placement/availability-zone
+$region = $regionHTML.Content.Substring(0,$regionHTML.Content.Length-1)
+$tags=Get-EC2Tag -region us-west-2 -Filter @{name="key";Values="opsworks:stack"} | Where-Object {$_.ResourceId -eq $instanceId}
+Update-CDDeploymentGroup -region us-west-2 -ApplicationName $tags.Value -CurrentDeploymentGroupName $tags.Value
   EOH
   guard_interpreter :powershell_script
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
