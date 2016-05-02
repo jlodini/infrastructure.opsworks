@@ -11,8 +11,6 @@ $tags=Get-EC2Tag -region us-west-2 -Filter @{name="key";Values="opsworks:stack"}
 Update-CDDeploymentGroup -region us-west-2 -ApplicationName $tags.Value -CurrentDeploymentGroupName $tags.Value
 $list = Get-CDApplicationRevisionList -ApplicationName $tags.Value -region us-west-2 | Select-Object -first 1
 New-CDDeployment -region us-west-2 -ApplicationName $tags.Value -DeploymentGroupName $tags.Value -S3Location_Bucket $list.S3Location.Bucket -S3Location_Key $list.S3Location.Key -S3Location_BundleType $list.S3Location.BundleType -S3Location_ETag $list.S3Location.ETag -Revision_RevisionType S3
-Restart-Service -Name codedeployagent -force
-exit 0
 EOH
 end
 
