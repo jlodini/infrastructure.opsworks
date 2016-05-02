@@ -1,10 +1,8 @@
-powershell_script "Linking Codedeploy" do
-  code <<-EOH
-Import-Module ServerManager 
-Add-WindowsFeature -Name Web-Server
-  
-  
-  EOH
-  guard_interpreter :powershell_script
+powershell_script 'Install IIS' do
+  code 'Add-WindowsFeature Web-Server'
   not_if "(Get-WindowsFeature -Name Web-Server).Installed"
+end
+
+service 'w3svc' do
+  action [:start, :enable]
 end
